@@ -1,0 +1,85 @@
+set path=**/*
+set runtimepath=~/.vim,$VIMRUNTIME
+filetype on
+syn on
+set tags=~/.tags
+set complete=.,w,b,u,t,i
+set listchars=tab:>-,eol:$,trail:.,extends:#
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set mouse=a
+set nocompatible        "be  iMproved
+set cursorline
+
+        let g:async = {'vim' : '/Applications/MacVim.app/Contents/MacOS/Vim'}
+        fun SetupVAM()
+          set runtimepath+=~/vim-addons/vim-addon-manager
+          " commenting try .. endtry because trace is lost if you use it.
+          " There should be no exception anyway
+          " try
+            "call vam#ActivateAddons(['pluginA', 'pluginB'], {'auto_install' : 0})
+          "call vam#ActivateAddons(["github:MarcWeber"],{'auto_install' : 0})
+          "call vim_addon_MarcWeber#Activate(['scala'])
+            call vam#ActivateAddons(["ensime", "vim-addon-scala","vim-addon-sbt", "camelcasemotion"], {'auto_install' : 0})
+            " pluginA could be github:YourName see vam#install#RewriteName()
+          " catch /.*/
+          " echoe v:exception
+          " endtry
+        endf
+        call SetupVAM()
+
+"when editing a file for a directory that doesn't exist, ask if it should be created
+augroup AutoMkdir
+    autocmd!
+    autocmd  BufNewFile  *  :call EnsureDirExists()
+augroup END
+function! EnsureDirExists ()
+    let required_dir = expand("%:h")
+    if !isdirectory(required_dir)
+        call AskQuit("Directory '" . required_dir . "' doesn't exist.", "&Create it?")
+
+        try
+            call mkdir( required_dir, 'p' )
+        catch
+            call AskQuit("Can't create '" . required_dir . "'", "&Continue anyway?")
+        endtry
+    endif
+endfunction
+
+function! AskQuit (msg, proposed_action)
+    if confirm(a:msg, "&Quit?\n" . a:proposed_action) == 1
+        exit
+    endif
+endfunction
+
+fu! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1,1s/<?xml .*?>//
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  1
+  exe "norm! O<PrettyXML>"
+  exe "norm! Go</PrettyXML>"
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2
+  exe "norm ddGdd"
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfu
+command! PrettyXML call DoPrettyXML()
+
