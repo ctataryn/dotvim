@@ -11,23 +11,25 @@ set shiftwidth=4
 set mouse=a
 set nocompatible        "be  iMproved
 set cursorline
+colorscheme asmanian2
 
-        let g:async = {'vim' : '/Applications/MacVim.app/Contents/MacOS/Vim'}
-        fun SetupVAM()
-          set runtimepath+=~/vim-addons/vim-addon-manager
-          " commenting try .. endtry because trace is lost if you use it.
-          " There should be no exception anyway
-          " try
-            "call vam#ActivateAddons(['pluginA', 'pluginB'], {'auto_install' : 0})
-          "call vam#ActivateAddons(["github:MarcWeber"],{'auto_install' : 0})
-          "call vim_addon_MarcWeber#Activate(['scala'])
-            call vam#ActivateAddons(["ensime", "vim-addon-scala","vim-addon-sbt", "camelcasemotion"], {'auto_install' : 0})
-            " pluginA could be github:YourName see vam#install#RewriteName()
-          " catch /.*/
-          " echoe v:exception
-          " endtry
-        endf
-        call SetupVAM()
+"Vim Addon Manager
+let g:async = {'vim' : '/Applications/MacVim.app/Contents/MacOS/Vim'}
+fun SetupVAM()
+  set runtimepath+=~/vim-addons/vim-addon-manager
+  " commenting try .. endtry because trace is lost if you use it.
+  " There should be no exception anyway
+  " try
+    "call vam#ActivateAddons(['pluginA', 'pluginB'], {'auto_install' : 0})
+  "call vam#ActivateAddons(["github:MarcWeber"],{'auto_install' : 0})
+  "call vim_addon_MarcWeber#Activate(['scala'])
+    call vam#ActivateAddons(["ensime", "vim-addon-scala","vim-addon-sbt", "camelcasemotion"], {'auto_install' : 0})
+    " pluginA could be github:YourName see vam#install#RewriteName()
+  " catch /.*/
+  " echoe v:exception
+  " endtry
+endf
+call SetupVAM()
 
 "when editing a file for a directory that doesn't exist, ask if it should be created
 augroup AutoMkdir
