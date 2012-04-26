@@ -24,7 +24,7 @@ fun SetupVAM()
     "call vam#ActivateAddons(['pluginA', 'pluginB'], {'auto_install' : 0})
   "call vam#ActivateAddons(["github:MarcWeber"],{'auto_install' : 0})
   "call vim_addon_MarcWeber#Activate(['scala'])
-    call vam#ActivateAddons(["ensime", "vim-addon-scala","vim-addon-sbt", "camelcasemotion", "session3150", "VimClojure"], {'auto_install' : 0})
+    call vam#ActivateAddons(["vim-addon-scala","vim-addon-sbt", "camelcasemotion", "VimClojure"], {'auto_install' : 0})
     " pluginA could be github:YourName see vam#install#RewriteName()
   " catch /.*/
   " echoe v:exception
