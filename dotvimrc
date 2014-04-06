@@ -1,21 +1,8 @@
-set gfn=Menlo:h19
-set path=**/*
-set runtimepath=~/.vim,$VIMRUNTIME
-filetype on
-syn on
-set tags=~/.tags
-set complete=.,w,b,u,t,i
-set listchars=tab:>-,eol:$,trail:.,extends:#
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set mouse=a
-set nocompatible        "be  iMproved
-set cursorline
 "colorscheme asmanian2
-filetype plugin off
+set nocompatible
+filetype off
+
 "Vim Addon Manager
-let g:async = {'vim' : '/Applications/MacVim.app/Contents/MacOS/Vim'}
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -31,3 +18,4 @@ filetype plugin indent on     " required
 
 " vim-mustache-handlebars abbreviations
 let g:mustache_abbreviations = 1
+set gfn=Menlo:h19
