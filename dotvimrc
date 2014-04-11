@@ -1,6 +1,12 @@
 "colorscheme asmanian2
 set nocompatible
 filetype off
+set nowrap 
+set autoindent expandtab smarttab           " settings for indentation
+set tabstop=2 shiftwidth=2 softtabstop=2    " use 2 spaces for indenting
+set nobackup nowritebackup                  " turn off backup file creation
+set history=1000                            " remember the last 1000 command instead of the default 20
+set cursorline                              " highlight the current line
 
 "Vim Addon Manager
 set rtp+=~/.vim/bundle/vundle/
@@ -11,8 +17,10 @@ Plugin 'gmarik/vundle'
 " Any without a username sources from github.com/vim-scripts/<plugin>
 " Plugin 'surround.vim'
 Plugin 'dsawardekar/portkey'
+Plugin 'kien/ctrlp.vim'
 Plugin 'dsawardekar/ember.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'jlanzarotta/bufexplorer'
 
 filetype plugin indent on     " required 
 
