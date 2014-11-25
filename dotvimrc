@@ -13,9 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'closetag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jlanzarotta/bufexplorer'
-"https://github.com/mustache/vim-mustache-handlebars
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'daylerees/colour-schemes'
+Plugin 'daylerees/colour-schemes', {'rtp':'vim/'}
 Plugin 'derekwyatt/vim-scala'
 Plugin 'bling/vim-airline'
 
@@ -29,12 +28,12 @@ set tabstop=2 shiftwidth=2 softtabstop=2    " use 2 spaces for indenting
 set nobackup nowritebackup                  " turn off backup file creation
 set history=1000                            " remember the last 1000 command instead of the default 20
 set cursorline                              " highlight the current line
-colorscheme Turnip
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
-set gfn=Consolas:h16
-set backupdir=c:/Users/ctatar01/temp
-set directory=c:/Users/ctatar01/temp
+colorscheme turnip
+set gfn="Droid Sans":h16
+set backupdir=~/tmp
+set directory=~/tmp
 set laststatus=2                            " vim-airline will display proper
                                             " StatusLine even when there is no
                                             " split window
