@@ -1,29 +1,40 @@
-"colorscheme asmanian2
 set nocompatible
 filetype off
+set wildignore+=*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
+
+"'''''''''''''' VUNDLE ''''''''''''''''''
+set rtp+=c:/Users/ctatar01/vimfiles/bundle/Vundle.vim/
+let path='c:/Users/ctatar01/vimfiles/bundle'
+call vundle#begin(path)
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'closetag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'jlanzarotta/bufexplorer'
+"https://github.com/mustache/vim-mustache-handlebars
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'daylerees/colour-schemes'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'bling/vim-airline'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+"'''''''''''''' VUNDLE ''''''''''''''''''
+
 set nowrap 
 set autoindent expandtab smarttab           " settings for indentation
 set tabstop=2 shiftwidth=2 softtabstop=2    " use 2 spaces for indenting
 set nobackup nowritebackup                  " turn off backup file creation
 set history=1000                            " remember the last 1000 command instead of the default 20
 set cursorline                              " highlight the current line
-
-"Vim Addon Manager
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-" Any without a username sources from github.com/vim-scripts/<plugin>
-" Plugin 'surround.vim'
-Plugin 'dsawardekar/portkey'
-Plugin 'kien/ctrlp.vim'
-Plugin 'dsawardekar/ember.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'jlanzarotta/bufexplorer'
-
-filetype plugin indent on     " required 
-
-" vim-mustache-handlebars abbreviations
+colorscheme Turnip
 let g:mustache_abbreviations = 1
-set gfn=Menlo:h19
+syntax on                                   " automatic syntax highlighting
+set gfn=Consolas:h16
+set backupdir=c:/Users/ctatar01/temp
+set directory=c:/Users/ctatar01/temp
+set laststatus=2                            " vim-airline will display proper
+                                            " StatusLine even when there is no
+                                            " split window
