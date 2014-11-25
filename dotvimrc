@@ -3,8 +3,8 @@ filetype off
 set wildignore+=*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
 
 "'''''''''''''' VUNDLE ''''''''''''''''''
-set rtp+=c:/Users/ctatar01/vimfiles/bundle/Vundle.vim/
-let path='c:/Users/ctatar01/vimfiles/bundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+let path='~/.vim/bundle'
 call vundle#begin(path)
 
 " let Vundle manage Vundle, required
