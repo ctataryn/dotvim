@@ -17,6 +17,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'daylerees/colour-schemes', {'rtp':'vim/'}
 Plugin 'derekwyatt/vim-scala'
 Plugin 'bling/vim-airline'
+Plugin 'yegappan/mru'
+Plugin 'rking/ag.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -37,3 +39,5 @@ set directory=~/tmp
 set laststatus=2                            " vim-airline will display proper
                                             " StatusLine even when there is no
                                             " split window
+set listchars=tab:->,trail:º                " distinguish tabs from spaces
+set list                                    " show spaces and tabs
