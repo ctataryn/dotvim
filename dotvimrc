@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-set wildignore+=*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
+set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
 
 "'''''''''''''' VUNDLE ''''''''''''''''''
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,6 +19,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'bling/vim-airline'
 Plugin 'yegappan/mru'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -32,8 +33,8 @@ set history=1000                            " remember the last 1000 command ins
 set cursorline                              " highlight the current line
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
-colorscheme turnip
-set gfn="Droid Sans":h16
+colorscheme Kiwi
+set gfn=Consolas:h16
 set backupdir=~/tmp
 set directory=~/tmp
 set laststatus=2                            " vim-airline will display proper
@@ -41,3 +42,8 @@ set laststatus=2                            " vim-airline will display proper
                                             " split window
 set listchars=tab:->,trail:º                " distinguish tabs from spaces
 set list                                    " show spaces and tabs
+set fileformat=unix
+set fileformats=unix,dos
+
+"Syntastic checkers
+"let g:syntastic_javascript_checkers = ['jshint']
