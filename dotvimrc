@@ -14,7 +14,7 @@ Plugin 'closetag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'daylerees/colour-schemes', {'rtp':'vim/'}
+Plugin 'flazz/vim-colorschemes'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'bling/vim-airline'
 Plugin 'yegappan/mru'
@@ -33,7 +33,7 @@ set history=1000                            " remember the last 1000 command ins
 set cursorline                              " highlight the current line
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
-colorscheme Kiwi
+colorscheme wombat
 set gfn=Consolas:h16
 set backupdir=~/tmp
 set directory=~/tmp
