@@ -1,18 +1,23 @@
-set nocompatible
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
-
+if has("win16") || has("win32") || has("win64")
+  if &shell=~#'bash$'
+    set shell=$COMSPEC " sets shell to correct path for cmd.exe
+  endif
+endif
 "'''''''''''''' VUNDLE ''''''''''''''''''
-set rtp+=~/.vim/bundle/Vundle.vim
-let path='~/.vim/bundle'
-call vundle#begin(path)
+let vimDir = '$HOME/.vim'
+let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
+call vundle#begin(expand(vimDir . '/bundle'))
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'closetag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jlanzarotta/bufexplorer'
+"https://github.com/mustache/vim-mustache-handlebars
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'derekwyatt/vim-scala'
@@ -31,18 +36,19 @@ set tabstop=2 shiftwidth=2 softtabstop=2    " use 2 spaces for indenting
 set nobackup nowritebackup                  " turn off backup file creation
 set history=1000                            " remember the last 1000 command instead of the default 20
 set cursorline                              " highlight the current line
+colorscheme wombat
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
-colorscheme wombat
 set gfn=Consolas:h16
-set backupdir=~/tmp
-set directory=~/tmp
+set backupdir=/tmp
+set directory=.,/tmp
+"set directory=c:/Users/ctatar01/temp
 set laststatus=2                            " vim-airline will display proper
                                             " StatusLine even when there is no
                                             " split window
 set listchars=tab:->,trail:º                " distinguish tabs from spaces
 set list                                    " show spaces and tabs
-set fileformat=unix
+set fileformat=unix                         " default to unix file endings
 set fileformats=unix,dos
 
 "Syntastic checkers
