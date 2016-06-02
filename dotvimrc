@@ -14,17 +14,20 @@ call vundle#begin(expand(vimDir . '/bundle'))
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'closetag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jlanzarotta/bufexplorer'
-"https://github.com/mustache/vim-mustache-handlebars
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'bling/vim-airline'
-Plugin 'yegappan/mru'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-ragtag'                 "amounst other things closes an open html/xml tag using <C-X>/ while in insert mode
+Plugin 'kien/ctrlp.vim'                   "fuzzy search files in your directory structure by name using <C-p>
+Plugin 'jlanzarotta/bufexplorer'          "lists open, and previously opened buffers by typing \be
+Plugin 'mustache/vim-mustache-handlebars' "sytax highlighting and completions for {{}}
+Plugin 'flazz/vim-colorschemes'           "color schemes
+Plugin 'derekwyatt/vim-scala'             "Scala specific features and TagBar support
+Plugin 'bling/vim-airline'                "Pretty status bar at bottom of file
+Plugin 'yegappan/mru'                     "Open Most Recently Used files using :MRU https://github.com/vim-scripts/mru.vim
+Plugin 'rking/ag.vim'                     "Allows searching across files using :Ag <search term>
+Plugin 'scrooloose/syntastic'             "Adds syntax checking when saving a file
+Plugin 'pangloss/vim-javascript'          "fixes indent problems I have
+Plugin 'majutsushi/tagbar'                "needed by vim-scala, uses it's ctags definitions to navigate through the hierarchy of a Scala file
+Plugin 'kien/rainbow_parentheses.vim'     "Colors matching parenthesis
+Plugin 'regedarek/ZoomWin'                "allows you to zoom a window to fullscreen using <C-w>o
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,5 +54,11 @@ set list                                    " show spaces and tabs
 set fileformat=unix                         " default to unix file endings
 set fileformats=unix,dos
 
+"TagBar activation by using F8 key
+nmap <F8> :TagbarToggle<CR>
+let g:scala_use_builtin_tagbar_defs = 1
 "Syntastic checkers
 "let g:syntastic_javascript_checkers = ['jshint']
+"Rainbow parens, make curly braces rainbowed
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadBraces
