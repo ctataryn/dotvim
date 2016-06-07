@@ -53,6 +53,7 @@ set listchars=tab:->,trail:º                " distinguish tabs from spaces
 set list                                    " show spaces and tabs
 set fileformat=unix                         " default to unix file endings
 set fileformats=unix,dos
+set relativenumber                          " show line numbers as 'distance from current line'
 
 "TagBar activation by using F8 key
 nmap <F8> :TagbarToggle<CR>
