@@ -14,20 +14,24 @@ call vundle#begin(expand(vimDir . '/bundle'))
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-ragtag'                 "amounst other things closes an open html/xml tag using <C-X>/ while in insert mode
-Plugin 'kien/ctrlp.vim'                   "fuzzy search files in your directory structure by name using <C-p>
-Plugin 'jlanzarotta/bufexplorer'          "lists open, and previously opened buffers by typing \be
-Plugin 'mustache/vim-mustache-handlebars' "sytax highlighting and completions for {{}}
-Plugin 'flazz/vim-colorschemes'           "color schemes
-Plugin 'derekwyatt/vim-scala'             "Scala specific features and TagBar support
-Plugin 'bling/vim-airline'                "Pretty status bar at bottom of file
-Plugin 'yegappan/mru'                     "Open Most Recently Used files using :MRU https://github.com/vim-scripts/mru.vim
-Plugin 'rking/ag.vim'                     "Allows searching across files using :Ag <search term>
-Plugin 'scrooloose/syntastic'             "Adds syntax checking when saving a file
-Plugin 'pangloss/vim-javascript'          "fixes indent problems I have
-Plugin 'majutsushi/tagbar'                "needed by vim-scala, uses it's ctags definitions to navigate through the hierarchy of a Scala file
-Plugin 'kien/rainbow_parentheses.vim'     "Colors matching parenthesis
-Plugin 'regedarek/ZoomWin'                "allows you to zoom a window to fullscreen using <C-w>o
+Plugin 'tpope/vim-ragtag'                 " amounst other things closes an open html/xml tag using <C-X>/ while in insert mode
+Plugin 'tpope/vim-surround'                "allows you to enclose text with quotes using cs<from><to> e.g. cs[( to change brackets
+Plugin 'kien/ctrlp.vim'                   " fuzzy search files in your directory structure by name using <C-p>
+Plugin 'jlanzarotta/bufexplorer'          " lists open, and previously opened buffers by typing \be
+Plugin 'mustache/vim-mustache-handlebars' " sytax highlighting and completions for {{}}
+Plugin 'flazz/vim-colorschemes'           " color schemes
+Plugin 'derekwyatt/vim-scala'             " Scala specific features and TagBar support
+Plugin 'bling/vim-airline'                " Pretty status bar at bottom of file
+Plugin 'vim-airline/vim-airline-themes'   " themes for air-line
+Plugin 'yegappan/mru'                     " Open Most Recently Used files using :MRU https://github.com/vim-scripts/mru.vim
+Plugin 'rking/ag.vim'                     " Allows searching across files using :Ag <search term>
+Plugin 'scrooloose/syntastic'             " Adds syntax checking when saving a file
+Plugin 'pangloss/vim-javascript'          " fixes indent problems I have
+Plugin 'majutsushi/tagbar'                " needed by vim-scala, uses it's ctags definitions to navigate through the hierarchy of a Scala file
+Plugin 'kien/rainbow_parentheses.vim'     " Colors matching parenthesis
+Plugin 'regedarek/ZoomWin'                " allows you to zoom a window to fullscreen using <C-w>o
+Plugin 'tpope/vim-fugitive'               " adds nice git commands and diff tools (:Gdiff, :Gwrite using vim's :diffput/:diffget)
+Plugin 'drmikehenry/vim-fontsize'         " Allows increasing font-size using <Leader><Leader>+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,6 +53,9 @@ set directory=.,/tmp
 set laststatus=2                            " vim-airline will display proper
                                             " StatusLine even when there is no
                                             " split window
+let g:airline_theme='wombat'
+let g:airline_powerline_fonts = 0           " no clue how to install these cool fonts, so disable airline's use of them
+
 set listchars=tab:->,trail:º                " distinguish tabs from spaces
 set list                                    " show spaces and tabs
 set fileformat=unix                         " default to unix file endings
@@ -71,3 +78,5 @@ let g:scala_use_builtin_tagbar_defs = 1
 "Rainbow parens, make curly braces rainbowed
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadBraces
+set diffopt+=vertical                      " make it so fugitive's GDiff does a 3-way merge in vertical splits
+
