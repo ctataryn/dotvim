@@ -25,13 +25,14 @@ Plugin 'bling/vim-airline'                " Pretty status bar at bottom of file
 Plugin 'vim-airline/vim-airline-themes'   " themes for air-line
 Plugin 'yegappan/mru'                     " Open Most Recently Used files using :MRU https://github.com/vim-scripts/mru.vim
 Plugin 'rking/ag.vim'                     " Allows searching across files using :Ag <search term>
-Plugin 'scrooloose/syntastic'             " Adds syntax checking when saving a file
+"Plugin 'scrooloose/syntastic'             " Adds syntax checking when saving a file
 Plugin 'pangloss/vim-javascript'          " fixes indent problems I have
 Plugin 'majutsushi/tagbar'                " needed by vim-scala, uses it's ctags definitions to navigate through the hierarchy of a Scala file
 Plugin 'kien/rainbow_parentheses.vim'     " Colors matching parenthesis
 Plugin 'regedarek/ZoomWin'                " allows you to zoom a window to fullscreen using <C-w>o
 Plugin 'tpope/vim-fugitive'               " adds nice git commands and diff tools (:Gdiff, :Gwrite using vim's :diffput/:diffget)
 Plugin 'drmikehenry/vim-fontsize'         " Allows increasing font-size using <Leader><Leader>+
+Plugin 'vim-scripts/marvim'               " Allows you to persist macros between sessions 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
