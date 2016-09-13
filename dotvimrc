@@ -62,6 +62,7 @@ set list                                    " show spaces and tabs
 set fileformat=unix                         " default to unix file endings
 set fileformats=unix,dos
 set relativenumber                          " show line numbers as 'distance from current line'
+set number                                  " however, make the current line show it's absolute line number insted of 0
 
 " Map System clipboard copy/paste
 vmap <Leader>y "+y
