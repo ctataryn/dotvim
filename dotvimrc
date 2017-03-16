@@ -48,7 +48,13 @@ set cursorline                              " highlight the current line
 colorscheme wombat
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
-set gfn=Ubuntu\ Mono\ 16
+if has('win32')
+  set gfn=Consolas:h16
+elseif has('mac')
+  set gfn=Consolas:h16
+elseif has('unix')
+  set gfn=Ubuntu\ Mono\ 16
+endif
 set backupdir=/tmp
 set directory=.,/tmp
 "set directory=c:/Users/ctatar01/temp
