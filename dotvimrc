@@ -33,6 +33,7 @@ Plugin 'regedarek/ZoomWin'                " allows you to zoom a window to fulls
 Plugin 'tpope/vim-fugitive'               " adds nice git commands and diff tools (:Gdiff, :Gwrite using vim's :diffput/:diffget)
 Plugin 'drmikehenry/vim-fontsize'         " Allows increasing font-size using <Leader><Leader>+
 Plugin 'vim-scripts/marvim'               " Allows you to persist macros between sessions 
+Plugin 'tpope/vim-obsession'              " Allows you to persist window layouts between sessions 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,7 +48,7 @@ set cursorline                              " highlight the current line
 colorscheme wombat
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
-set gfn=Consolas:h16
+set gfn=Ubuntu\ Mono\ 16
 set backupdir=/tmp
 set directory=.,/tmp
 "set directory=c:/Users/ctatar01/temp
@@ -82,3 +83,11 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadBraces
 set diffopt+=vertical                      " make it so fugitive's GDiff does a 3-way merge in vertical splits
 
+"load previous windows saved via tpope's Obession plugin
+augroup sourcesession
+        autocmd!
+        autocmd VimEnter * nested
+        \ if !argc() && empty(v:this_session) && filereadable('Session.vim') |
+        \   source Session.vim |
+        \ endif
+augroup END
