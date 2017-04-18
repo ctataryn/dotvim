@@ -57,9 +57,17 @@ elseif has('mac')
 elseif has('unix')
   set gfn=Ubuntu\ Mono\ 16
 endif
-set backupdir=/tmp
-set directory=.,/tmp
-"set directory=c:/Users/ctatar01/temp
+
+" Set the swap folders so swap files don't pollute the current dir
+let backup_folder = $HOME . '/.vim/_backup'
+let temp_folder = $HOME . '/.vim/_temp'
+if !isdirectory(backup_folder)
+  call mkdir(backup_folder, "p")
+endif
+if !isdirectory(temp_folder)
+  call mkdir(temp_folder, "p")
+endif
+
 set laststatus=2                            " vim-airline will display proper
                                             " StatusLine even when there is no
                                             " split window
