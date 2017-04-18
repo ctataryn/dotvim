@@ -67,6 +67,9 @@ endif
 if !isdirectory(temp_folder)
   call mkdir(temp_folder, "p")
 endif
+let &backupdir=backup_folder    " where to put backup files.
+let &directory=temp_folder      " where to put swap files.
+
 
 set laststatus=2                            " vim-airline will display proper
                                             " StatusLine even when there is no
