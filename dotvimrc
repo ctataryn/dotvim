@@ -84,6 +84,14 @@ set fileformats=unix,dos
 set relativenumber                          " show line numbers as 'distance from current line'
 set number                                  " however, make the current line show it's absolute line number insted of 0
 
+"""""""""""""""""""""""""""""""""
+"         Mappings              "
+"""""""""""""""""""""""""""""""""
+" open ~/.vimrc (or ~/_vimrc)
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" source ~/.vimrc (or ~/_vimrc) to realize changes
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " Map System clipboard copy/paste
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -94,6 +102,8 @@ vmap <Leader>P "+P
 
 "TagBar activation by using F8 key
 nmap <F8> :TagbarToggle<CR>
+"""""""""""""""""""""""""""""""""
+
 let g:scala_use_builtin_tagbar_defs = 1
 "Syntastic checkers
 "let g:syntastic_javascript_checkers = ['jshint']
