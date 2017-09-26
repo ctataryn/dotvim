@@ -53,7 +53,7 @@ syntax on                                   " automatic syntax highlighting
 if has('win32')
   set gfn=Consolas:h16
 elseif has('mac')
-  set gfn=Consolas:h16
+  set gfn=Menlo\ Regular:h16
 elseif has('unix')
   set gfn=Ubuntu\ Mono\ 16
 endif
