@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
+set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*,*/bin/*
 if has("win16") || has("win32") || has("win64")
   if &shell=~#'bash$'
     set shell=$COMSPEC " sets shell to correct path for cmd.exe
