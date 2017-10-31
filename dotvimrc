@@ -36,6 +36,9 @@ Plugin 'vim-scripts/marvim'               " Allows you to persist macros between
 Plugin 'tpope/vim-obsession'              " Allows you to persist window layouts between sessions 
 Plugin 'tpope/vim-projectionist'          " Used to 'jump between' related Ember files using :A, :AS, :AV (need a .projections.json file in the project folder https://gist.github.com/AndrewRadev/3524ee46bca8ab349329)
 Plugin 'AndrewRadev/ember_tools.vim'      " Allows you to type 'gf' while on a HandleBars component to take you to the code for that helper, or on an Injected service
+Plugin 'scrooloose/nerdtree'              " Shows a hierarchy of the current folder structure
+Plugin 'Xuyuanp/nerdtree-git-plugin'      " Plugin for NerdTree that shows git file status icons
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
