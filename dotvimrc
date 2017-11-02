@@ -38,6 +38,7 @@ Plugin 'tpope/vim-projectionist'          " Used to 'jump between' related Ember
 Plugin 'AndrewRadev/ember_tools.vim'      " Allows you to type 'gf' while on a HandleBars component to take you to the code for that helper, or on an Injected service
 Plugin 'scrooloose/nerdtree'              " Shows a hierarchy of the current folder structure
 Plugin 'Xuyuanp/nerdtree-git-plugin'      " Plugin for NerdTree that shows git file status icons
+Plugin 'alvan/vim-closetag'               " Auto-completes html/xml tags, see below for configuration
 
 
 call vundle#end()            " required
@@ -123,3 +124,29 @@ augroup sourcesession
         \   source Session.vim |
         \ endif
 augroup END
+
+
+"'''''' vim-closetag '''''''
+" filenames like *.xml, *.html, *.xhtml, ...
+" Then after you press <kbd>&gt;</kbd> in these files, this plugin will try to close the current tag.
+"
+let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non closing tags self closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" integer value [0|1]
+" This will make the list of non closing tags case sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
+"'''''''''''''''''''''''''''
