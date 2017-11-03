@@ -95,6 +95,8 @@ set number                                  " however, make the current line sho
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " source ~/.vimrc (or ~/_vimrc) to realize changes
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" open NERDTree
+nnoremap <leader>nt :NERDTree<cr>
 
 " Map System clipboard copy/paste
 vmap <Leader>y "+y
