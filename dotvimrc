@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*,*/bin/*
+set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*
 if has("win16") || has("win32") || has("win64")
   if &shell=~#'bash$'
     set shell=$COMSPEC " sets shell to correct path for cmd.exe
@@ -25,7 +25,7 @@ Plugin 'bling/vim-airline'                " Pretty status bar at bottom of file
 Plugin 'vim-airline/vim-airline-themes'   " themes for air-line
 Plugin 'yegappan/mru'                     " Open Most Recently Used files using :MRU https://github.com/vim-scripts/mru.vim
 Plugin 'rking/ag.vim'                     " Allows searching across files using :Ag <search term>
-"Plugin 'scrooloose/syntastic'             " Adds syntax checking when saving a file
+Plugin 'vim-syntastic/syntastic'          " Adds syntax checking when saving a file
 Plugin 'pangloss/vim-javascript'          " fixes indent problems I have
 Plugin 'majutsushi/tagbar'                " needed by vim-scala, uses it's ctags definitions to navigate through the hierarchy of a Scala file
 Plugin 'kien/rainbow_parentheses.vim'     " Colors matching parenthesis
@@ -39,7 +39,6 @@ Plugin 'AndrewRadev/ember_tools.vim'      " Allows you to type 'gf' while on a H
 Plugin 'scrooloose/nerdtree'              " Shows a hierarchy of the current folder structure
 Plugin 'Xuyuanp/nerdtree-git-plugin'      " Plugin for NerdTree that shows git file status icons
 Plugin 'alvan/vim-closetag'               " Auto-completes html/xml tags, see below for configuration
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -91,10 +90,11 @@ set number                                  " however, make the current line sho
 """""""""""""""""""""""""""""""""
 "         Mappings              "
 """""""""""""""""""""""""""""""""
-" open ~/.vimrc (or ~/_vimrc)
+" open ~/.vimrc (or ~/_vimrc) with \ev
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-" source ~/.vimrc (or ~/_vimrc) to realize changes
+" source ~/.vimrc (or ~/_vimrc) to realize changes with \sv
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " open NERDTree
 nnoremap <leader>nt :NERDTree<cr>
 
@@ -111,8 +111,6 @@ nmap <F8> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""
 
 let g:scala_use_builtin_tagbar_defs = 1
-"Syntastic checkers
-"let g:syntastic_javascript_checkers = ['jshint']
 "Rainbow parens, make curly braces rainbowed
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadBraces
@@ -151,4 +149,19 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>'
+"'''''''''''''''''''''''''''
+
+"'''''' vim-syntastic '''''''
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint'
+
 "'''''''''''''''''''''''''''
