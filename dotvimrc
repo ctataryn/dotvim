@@ -25,7 +25,7 @@ Plugin 'bling/vim-airline'                " Pretty status bar at bottom of file
 Plugin 'vim-airline/vim-airline-themes'   " themes for air-line
 Plugin 'yegappan/mru'                     " Open Most Recently Used files using :MRU https://github.com/vim-scripts/mru.vim
 Plugin 'rking/ag.vim'                     " Allows searching across files using :Ag <search term>
-Plugin 'vim-syntastic/syntastic'          " Adds syntax checking when saving a file
+Plugin 'w0rp/ale'                         " Adds syntax checking when saving a file
 Plugin 'pangloss/vim-javascript'          " fixes indent problems I have
 Plugin 'majutsushi/tagbar'                " needed by vim-scala, uses it's ctags definitions to navigate through the hierarchy of a Scala file
 Plugin 'kien/rainbow_parentheses.vim'     " Colors matching parenthesis
@@ -151,17 +151,13 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 "'''''''''''''''''''''''''''
 
-"'''''' vim-syntastic '''''''
-"
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
-
+"'''''' vim-ale '''''''
+" Put this in vimrc or a plugin file of your own.
+" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_loclist = 1
+let g:ale_open_list = 1
 "'''''''''''''''''''''''''''
