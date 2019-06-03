@@ -8,7 +8,7 @@ git clone git@github.com:ctataryn/dotvim.git`
 ```
 
 * On Linux:
-   * `ln -s ~/dotvim ~/.vimrc`
+   * `ln -s ~/dotvim/dotvimrc ~/.vimrc`
    * `ln -s ~/dotvim ~/.vim`
 * On Windows (make sure to run cmd.exe **as Adminstrator**):
    * `mklink \Users\<userid>\.vimrc \Users\<userid>\.vim\dotvimrc`
