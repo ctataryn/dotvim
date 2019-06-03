@@ -21,6 +21,7 @@ Plugin 'kien/ctrlp.vim'                   " fuzzy search files in your directory
 Plugin 'jlanzarotta/bufexplorer'          " lists open, and previously opened buffers by typing \be
 Plugin 'mustache/vim-mustache-handlebars' " sytax highlighting and completions for {{}}
 Plugin 'flazz/vim-colorschemes'           " color schemes
+Plugin 'benburrill/potato-colors'         " color schemes
 Plugin 'derekwyatt/vim-scala'             " Scala specific features and TagBar support
 Plugin 'bling/vim-airline'                " Pretty status bar at bottom of file
 Plugin 'vim-airline/vim-airline-themes'   " themes for air-line
@@ -51,7 +52,8 @@ set tabstop=2 shiftwidth=2 softtabstop=2    " use 2 spaces for indenting
 set nobackup nowritebackup                  " turn off backup file creation
 set history=1000                            " remember the last 1000 command instead of the default 20
 set cursorline                              " highlight the current line
-colorscheme wombat
+" colorscheme wombat
+colorscheme potato
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
 if has('win32')
