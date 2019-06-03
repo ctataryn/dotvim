@@ -2,7 +2,10 @@ Craig Tataryn's <craiger@tataryn.net> ~/.vim directory
 
 To run on a fresh install:
 
-`git clone git@github.com:ctataryn/dotvim.git ~/.vim`
+```
+cd ~
+git clone git@github.com:ctataryn/dotvim.git`
+```
 
 * On Linux:
    * `ln -s ~/dotvim ~/.vimrc`
@@ -10,7 +13,8 @@ To run on a fresh install:
 * On Windows (make sure to run cmd.exe **as Adminstrator**):
    * `mklink \Users\<userid>\.vimrc \Users\<userid>\.vim\dotvimrc`
    * Rename dotvim folder to .vim (sym links under windows won't work with vundle)
-* `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+* On Linux
+   * `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 ## Launch GVim
 type: `:PluginInstall`
