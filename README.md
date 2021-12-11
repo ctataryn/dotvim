@@ -4,16 +4,18 @@ To run on a fresh install:
 
 ```
 cd ~
-git clone git@github.com:ctataryn/dotvim.git`
+git clone git@github.com:ctataryn/dotvim.git
 ```
 
-* On Linux:
+## Install .vim files
+* On Linux/Mac:
    * `ln -s ~/dotvim/dotvimrc ~/.vimrc`
    * `ln -s ~/dotvim ~/.vim`
 * On Windows (make sure to run cmd.exe **as Adminstrator**):
    * `mklink \Users\<userid>\.vimrc \Users\<userid>\.vim\dotvimrc`
    * Rename dotvim folder to .vim (sym links under windows won't work with vundle)
-* On Linux
+
+## Install Vundle
    * `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 ## Launch GVim
