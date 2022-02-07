@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set encoding=utf8
+set encoding=UTF-8
 set wildignore+=*/target*,*/tmp/*,*/node_modules/*,*/vendor/*,*/bower_components/*,*/dist/*,*/bin/*
 if has("win16") || has("win32") || has("win64")
   if &shell=~#'bash$'
@@ -21,7 +21,6 @@ Plugin 'kien/ctrlp.vim'                   " fuzzy search files in your directory
 Plugin 'jlanzarotta/bufexplorer'          " lists open, and previously opened buffers by typing \be
 Plugin 'mustache/vim-mustache-handlebars' " sytax highlighting and completions for {{}}
 Plugin 'flazz/vim-colorschemes'           " color schemes
-Plugin 'benburrill/potato-colors'         " color schemes
 Plugin 'derekwyatt/vim-scala'             " Scala specific features and TagBar support
 Plugin 'bling/vim-airline'                " Pretty status bar at bottom of file
 Plugin 'vim-airline/vim-airline-themes'   " themes for air-line
@@ -40,28 +39,31 @@ Plugin 'tpope/vim-projectionist'          " Used to 'jump between' related Ember
 Plugin 'AndrewRadev/ember_tools.vim'      " Allows you to type 'gf' while on a HandleBars component to take you to the code for that helper, or on an Injected service
 Plugin 'scrooloose/nerdtree'              " Shows a hierarchy of the current folder structure
 Plugin 'Xuyuanp/nerdtree-git-plugin'      " Plugin for NerdTree that shows git file status icons
+Plugin 'ryanoasis/vim-devicons'           " Icons used by Nerd Tree Git Plugin
 Plugin 'alvan/vim-closetag'               " Auto-completes html/xml tags, see below for configuration
+Plugin 'vim-scripts/AnsiEsc.vim'          " Allows you to render colors codes dumpped from a terminal by issuing :AnsiEsc
+Plugin 'vim-scripts/FormatToWidth'        " Format what is visually selected to a column width via `<num columns><leader>gq`
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 "'''''''''''''' VUNDLE ''''''''''''''''''
-
+let mapleader=" "
+nmap <bsplash> <space>
 set nowrap 
 set autoindent expandtab smarttab           " settings for indentation
 set tabstop=2 shiftwidth=2 softtabstop=2    " use 2 spaces for indenting
 set nobackup nowritebackup                  " turn off backup file creation
 set history=1000                            " remember the last 1000 command instead of the default 20
 set cursorline                              " highlight the current line
-" colorscheme wombat
-colorscheme potato
+colorscheme wombat
 let g:mustache_abbreviations = 1
 syntax on                                   " automatic syntax highlighting
 if has('win32')
-  set gfn=Consolas:h16
+  set gfn=JetBrains\ Mono:h12
 elseif has('mac')
-  set gfn=Menlo\ Regular:h16
+  set gfn=Menlo\ Regular:h12
 elseif has('unix')
-  set gfn=Ubuntu\ Mono\ 16
+  set gfn=Jetbrains\ Mono\ ExtraLight\ 12
 endif
 
 " Set the swap folders so swap files don't pollute the current dir
@@ -83,11 +85,11 @@ set laststatus=2                            " vim-airline will display proper
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 0           " no clue how to install these cool fonts, so disable airline's use of them
 
-set listchars=tab:->,trail:º                " distinguish tabs from spaces
+set listchars=tab:->,trail:º,eol:¶,extends:>,precedes:< " distinguish tabs from spaces
 set list                                    " show spaces and tabs
 set fileformat=unix                         " default to unix file endings
 set fileformats=unix,dos
-set relativenumber                          " show line numbers as 'distance from current line'
+"set relativenumber                          " show line numbers as 'distance from current line'
 set number                                  " however, make the current line show it's absolute line number insted of 0
 
 """""""""""""""""""""""""""""""""
@@ -115,6 +117,7 @@ nmap <F8> :TagbarToggle<CR>
 
 let g:scala_use_builtin_tagbar_defs = 1
 "Rainbow parens, make curly braces rainbowed
+" rainbow is super slow under wsl
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadBraces
 set diffopt+=vertical                      " make it so fugitive's GDiff does a 3-way merge in vertical splits
@@ -164,3 +167,6 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 1
 let g:ale_open_list = 1
 "'''''''''''''''''''''''''''
+" Limit to 80 columns in markdown files
+autocmd bufreadpre *.md setlocal textwidth=80
+
