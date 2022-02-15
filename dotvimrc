@@ -16,8 +16,8 @@ call vundle#begin(expand(vimDir . '/bundle'))
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-ragtag'                 " amounst other things closes an open html/xml tag using <C-X>/ while in insert mode
-Plugin 'tpope/vim-surround'                "allows you to enclose text with quotes using cs<from><to> e.g. cs[( to change brackets
-Plugin 'kien/ctrlp.vim'                   " fuzzy search files in your directory structure by name using <C-p>
+Plugin 'tpope/vim-surround'               " allows you to enclose text with quotes using cs<from><to> e.g. cs[( to change brackets
+Plugin 'ctrlpvim/ctrlp.vim'               " fuzzy search files in your directory structure by name using <C-p>
 Plugin 'jlanzarotta/bufexplorer'          " lists open, and previously opened buffers by typing \be
 Plugin 'mustache/vim-mustache-handlebars' " sytax highlighting and completions for {{}}
 Plugin 'flazz/vim-colorschemes'           " color schemes
@@ -36,7 +36,7 @@ Plugin 'drmikehenry/vim-fontsize'         " Allows increasing font-size using <L
 Plugin 'vim-scripts/marvim'               " Allows you to persist macros between sessions 
 Plugin 'tpope/vim-obsession'              " Allows you to persist window layouts between sessions 
 Plugin 'tpope/vim-projectionist'          " Used to 'jump between' related Ember files using :A, :AS, :AV (need a .projections.json file in the project folder https://gist.github.com/AndrewRadev/3524ee46bca8ab349329)
-Plugin 'AndrewRadev/ember_tools.vim'      " Allows you to type 'gf' while on a HandleBars component to take you to the code for that helper, or on an Injected service
+"Plugin 'AndrewRadev/ember_tools.vim'      " Allows you to type 'gf' while on a HandleBars component to take you to the code for that helper, or on an Injected service
 Plugin 'scrooloose/nerdtree'              " Shows a hierarchy of the current folder structure
 Plugin 'Xuyuanp/nerdtree-git-plugin'      " Plugin for NerdTree that shows git file status icons
 Plugin 'ryanoasis/vim-devicons'           " Icons used by Nerd Tree Git Plugin
@@ -64,6 +64,7 @@ elseif has('mac')
   set gfn=Menlo\ Regular:h12
 elseif has('unix')
   set gfn=Jetbrains\ Mono\ ExtraLight\ 12
+  set mousemodel=popup " Right-click popup menu seems disabled by default on Linux
 endif
 
 " Set the swap folders so swap files don't pollute the current dir
